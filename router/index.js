@@ -1,7 +1,7 @@
 const express = require('express');
 const pool = require('../dbconfig');
 const app = express();
-const getAllPets = require('./controllers/petsController.js');
+const getAllPets = require('../controllers/petsController.js');
 const port = 3036;
 
 app.get('/', async (req, res) => {
