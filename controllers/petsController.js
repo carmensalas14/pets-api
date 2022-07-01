@@ -1,9 +1,14 @@
-const getAllPets = async (req, res) => {
-	console.log('hi');
-	const data = await pool.query('SELECT * from pets').then((results) => results.rows);
-	res.send(data);
+const Pets = require("../models/Pets");
+const ToDo = require("../models/Pets");
 
-	res.end();
+const getAllPets = async (req, res) => {
+  console.log("hi");
+  try {
+    const results = await Pets.findAll();
+    res.status(200).json({ data: results });
+  } catch (err) {
+    res.status(500).json({ message: `${err.message}` });
+  }
 };
 
 module.export = getAllPets;
